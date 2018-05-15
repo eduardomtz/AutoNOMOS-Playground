@@ -23,9 +23,9 @@ public:
 
     void UpdateParaemters(float velocity, float steering)
     {
-        this->v_x = velocity * cos(steering);
-        this->v_y = velocity * sin(steering);
-        this->v_theta = (velocity / this->wheelBase) * tan(v_theta);
+        this->v_x = velocity * cos(theta);
+        this->v_y = velocity * sin(theta);
+        this->v_theta = (velocity / this->wheelBase) * tan(steering);
     }
 
     float* getPoints(float delta_time)
@@ -33,7 +33,7 @@ public:
         float *points = new float[3];
         points[0] = v_x * delta_time;
         points[1] = v_y * delta_time;
-        points[2] = v_theta * delta_time;
+        points[2] = v_theta * delta_time; // theta
         return points;
     }
 
